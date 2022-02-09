@@ -26,7 +26,7 @@ USER root
 
 # 3) install packages
 COPY requirements2.yml ./
-RUN pip install -y -r requirements2.yml
+RUN pip install -r requirements2.yml
 #RUN pip install --no-cache-dir networkx scipy python-louvain mmcv-full
 
 # 4) change back to notebook user
