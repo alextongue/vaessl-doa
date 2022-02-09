@@ -7,11 +7,8 @@
 
 # scipy/machine learning (tensorflow)
 # https://hub.docker.com/repository/docker/ucsdets/scipy-ml-notebook/tags
-ARG BASE_CONTAINER=ucsdets/scipy-ml-notebook:2020.2-stable
 
-FROM $BASE_CONTAINER
-
-LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
+FROM ucsdets/scipy-ml-notebook:2020.2-stable
 
 # 2) change to root to install packages
 USER root
@@ -26,7 +23,7 @@ USER root
 
 # 3) install packages
 COPY requirements2.yml ./
-RUN pip install -r requirements2.yml
+RUN pip install -r ./requirements2.yml
 #RUN pip install --no-cache-dir networkx scipy python-louvain mmcv-full
 
 # 4) change back to notebook user
