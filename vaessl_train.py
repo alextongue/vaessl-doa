@@ -32,7 +32,7 @@ from pyro.optim import Adam
 from utils.networks import input_test
 import utils.data_cls as data_cls
 from vaessl_core import SSVAE, run_inference_for_epoch, get_accuracy
-
+from utils.pyro_utils import debug_memory
 
 def train(args,train_obj,valid_obj):
     """

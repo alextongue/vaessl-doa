@@ -31,6 +31,8 @@ import pyro.distributions as dist
 from pyro.infer import config_enumerate
 from pyro.optim import Adam
 
+from utils.pyro_utils import debug_memory
+
 from utils.networks import CNN_yx,CNN_zxy,CNN_xyz
 import utils.data_cls as data_cls
 
@@ -283,11 +285,13 @@ def run_inference_for_epoch(data_loaders, losses, periodic_interval_batches):
         # data as arguments
         for loss_id in range(num_losses):
             if is_supervised:
-                new_loss = losses[loss_id].step(xs, ys)
+                new_loss = losses[loss_id].step(xs, ys).detach().item()
                 epoch_losses_sup[loss_id] += new_loss
             else:
-                new_loss = losses[loss_id].step(xs)
+                new_loss = losses[loss_id].step(xs).detach().item()
                 epoch_losses_unsup[loss_id] += new_loss
+
+        debug_memory()
 
     return epoch_losses_sup, epoch_losses_unsup
 
@@ -326,7 +330,7 @@ def get_loss_for_epoch(data_loaders, losses, periodic_interval_batches):
 
         for loss_id in range(num_losses):
             if is_supervised:
-                new_loss = losses[loss_id].evaluate_loss(xs, ys)
+                new_loss = losses[loss_id].evaluate_loss(xs, ys).detach().item()
                 epoch_losses_sup[loss_id] += new_loss
 
     # return the values of all losses
