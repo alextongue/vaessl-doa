@@ -8,7 +8,8 @@
 # scipy/machine learning (tensorflow)
 # https://hub.docker.com/repository/docker/ucsdets/scipy-ml-notebook/tags
 
-FROM ucsdets/scipy-ml-notebook:2020.2-stable
+FROM ucsdets/datahub-base-notebook:2021.2-stable
+#FROM ucsdets/scipy-ml-notebook:2020.2-stable
 
 # 2) change to root to install packages
 USER root
@@ -24,7 +25,9 @@ USER root
 # 3) install packages
 COPY requirements2.yml ./
 #RUN pip install --no-cache-dir -r ./requirements2.yml
+RUN apt-get -y install htop
 RUN conda env create --name vaessl --file=requirements2.yml
+RUN conda clean -tipy
 #RUN pip install --no-cache-dir networkx scipy python-louvain mmcv-full
 
 # 4) change back to notebook user
