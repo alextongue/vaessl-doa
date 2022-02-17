@@ -124,6 +124,8 @@ class DataClass:
         rtf_frames  = np.array(rtf_frames)
         frame_check = np.array(frame_check)
 
+        print('array made')
+
         rtf_labels.flags.writeable  = False
         rtf_frames.flags.writeable  = False
         frame_check.flags.writeable  = False
