@@ -31,8 +31,8 @@ RUN conda clean -tipy
 #RUN pip install --no-cache-dir networkx scipy python-louvain mmcv-full
 
 # OOM-Killer: Disable Memory Overcommit
-RUN sysctl -w vm.overcommit_memory=2
-RUN sysctl -w vm.overcommit_ratio=100 
+RUN sudo sysctl -w vm.overcommit_memory=2
+RUN sudo sysctl -w vm.overcommit_ratio=100 
 
 # 4) change back to notebook user
 #COPY /run_jupyter.sh /
