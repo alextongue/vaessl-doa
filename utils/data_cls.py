@@ -124,8 +124,6 @@ class DataClass:
         rtf_frames  = np.array(rtf_frames)
         frame_check = np.array(frame_check)
 
-        print('array made')
-
         rtf_labels.flags.writeable  = False
         rtf_frames.flags.writeable  = False
         frame_check.flags.writeable  = False
@@ -136,6 +134,7 @@ class DataClass:
 
         rtf_frames_norm = self._rtf_frames
 
+        print('test1')
 
         del self._rtf_frames
 
@@ -179,6 +178,7 @@ class DataClass:
 
         lmin = float('inf')
 
+        print('test2')
 
         for k in df.keys():  lmin = min(lmin,len(df[k]))  # smallest number of examples in all keys (DOAs)
 
