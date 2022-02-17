@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Code for training semi-supervised variational autoencoder (VAE-SSL) model for
 source localization in reverberant environments
@@ -13,7 +11,7 @@ The code is based on the Pyro probabilistic programming library and Pytorch.
 2. E. Bingham et al., "Pyro: Deep Universal Probabilistic Programming,"
 Journal of Machine Learning Research, 2018.
 3. A. Paszke et al., "Pytorch: An imperative style, high-performance deep
-learning library," Proc. Adv. Neural Inf. Process. Syst., 2019, pp. 8024–8035.
+learning library," Proc. Adv. Neural Inf. Process. Syst., 2019, pp. 8024-8035.
 
 If you find this code usefult for your research, please cite (1)--(3).
 Michael J. Bianco, July 2021
