@@ -96,7 +96,7 @@ class DataClass:
         labels_out = []
         ii=0
         for k in inds:  # train/test indices
-            if ii%100==0:
+            if ii%500==0:
                 show_mem_percent()
             for l in frame_dict.keys(): # looping over labels
                 #print(l)
@@ -205,6 +205,9 @@ class DataClass:
         self._test_inds = test_inds
 
         print('test4: train_inds={0}'.format(train_inds))
+        print('lmin={0}'.format(lmin))
+        print('test_inds_s={0}'.format(np.arange(0,lmin-1)))
+        print('test_inds={0}'.format(test_inds.shape))
 
         frame_train, label_train = self.get_train_test(df,train_inds)
         frame_test,  label_test  = self.get_train_test(df,test_inds)
