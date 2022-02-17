@@ -197,7 +197,7 @@ class DataClass:
         self._train_inds = train_inds
         self._test_inds = test_inds
 
-        print('test4')
+        print('test4: nAllow={0}'.format(nAllow))
 
         frame_train, label_train = self.get_train_test(df,train_inds)
         frame_test,  label_test  = self.get_train_test(df,test_inds)
