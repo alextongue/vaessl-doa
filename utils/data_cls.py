@@ -94,7 +94,9 @@ class DataClass:
         frames_out = []
         labels_out = []
         for k in inds:  # train/test indices
+            print(k)
             for l in frame_dict.keys(): # looping over labels
+                print(l)
                 frames_out.append(frame_dict[l][k])
                 labels_out.append([l])
 
@@ -197,7 +199,7 @@ class DataClass:
         self._train_inds = train_inds
         self._test_inds = test_inds
 
-        print('test4: nAllow={0}'.format(nAllow))
+        print('test4: train_inds={0}'.format(train_inds))
 
         frame_train, label_train = self.get_train_test(df,train_inds)
         frame_test,  label_test  = self.get_train_test(df,test_inds)
