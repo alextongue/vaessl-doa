@@ -243,6 +243,7 @@ class DataClass:
 
     def get_vaessl_data(self, nframes=10, nLabels=100, plotting=False, batch_size = 256, nBins =127):
         frame_dict, label_dict = self.get_stft_seq(nframes=nframes, nLabels=nLabels, plotting=plotting)
+        print('get_stft_seq done')
         for key in frame_dict.keys():
             frame_dict[key] = self.get_rtf_phase(frame_dict[key], nBins=nBins)  # overwriting frame_dict
             print(key,'frames shape:', frame_dict[key].shape)

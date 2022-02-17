@@ -216,5 +216,5 @@ if __name__ == "__main__":
                              loader_shuffle = True, norm_factor = np.pi)
     data_obj_valid = data_cls.DataClass(path=args.valid_data,addNoise=True, cuda_id=args.cuda_id,noiseSeed=1,
                              loader_shuffle = True, norm_factor = np.pi)
-
+    print('pretrain')
     train(args, data_obj_train, data_obj_valid)
