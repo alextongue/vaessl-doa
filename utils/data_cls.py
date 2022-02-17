@@ -18,6 +18,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 import numpy.random as nprand
 
+from utils.pyro_utils import show_mem_percent
 
 class DataClass:
     def __init__(self, path='', nfft=256, addNoise=False, noiseDB = 20, noiseSeed = 0, cuda_id = None, cnn = False,
@@ -93,13 +94,16 @@ class DataClass:
     def get_train_test(self, frame_dict, inds):
         frames_out = []
         labels_out = []
-        print('total number of indices: {0}'.format(inds[-1]))
+        ii=0
         for k in inds:  # train/test indices
-            #print(k)
+            if ii%100==0:
+                show_mem_percent()
             for l in frame_dict.keys(): # looping over labels
                 #print(l)
                 frames_out.append(frame_dict[l][k])
                 labels_out.append([l])
+        
+        print('total number of indices: {0}'.format(inds[-1]))
 
         return np.array(frames_out), np.array(labels_out)
 
