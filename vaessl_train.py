@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Code for training semi-supervised variational autoencoder (VAE-SSL) model for
 source localization in reverberant environments
