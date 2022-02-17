@@ -100,8 +100,7 @@ class DataClass:
                 frames_out.append(frame_dict[l][k])
                 labels_out.append([l])
         
-        print('total number of indices: {0}'.format(inds[-1]))
-
+        print('total number of indices: {0}'.format(inds.shape))
         show_mem_percent()
         print('frames_out.shape={0}'.format(np.array(frames_out).shape))
         print('labels_out.shape={0}'.format(np.array(labels_out).shape))
