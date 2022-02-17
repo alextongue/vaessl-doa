@@ -67,13 +67,13 @@ def train(args,train_obj,valid_obj):
     loss_basic = SVI(ss_vae.model, guide, optimizer, loss=elbo)
 
     # build a list of all losses considered
-    losses = [loss_basic.detach().item()]
+    losses = [loss_basic]
 
     # aux_loss: whether to use the auxiliary loss from NIPS 14 paper (Kingma et al)
     if args.aux_loss:
         elbo = Trace_ELBO()
         loss_aux = SVI(ss_vae.model_classify, ss_vae.guide_classify, optimizer, loss=elbo)
-        losses.append(loss_aux.detach().item())
+        losses.append(loss_aux)
 
 
     early_stop_counter = 0

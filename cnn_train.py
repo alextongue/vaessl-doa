@@ -87,7 +87,7 @@ def train(args,train_obj,valid_obj):
             loss.backward()
             optimizer.step()
 
-            running_loss += loss.item()
+            running_loss += loss.detach().item()
 
         running_loss_save.append((running_loss/len(loader_train)))
 
