@@ -98,6 +98,7 @@ class DataClass:
         for k in inds:  # train/test indices
             if ii%500==0:
                 show_mem_percent()
+            ii+=1
             for l in frame_dict.keys(): # looping over labels
                 #print(l)
                 frames_out.append(frame_dict[l][k])
