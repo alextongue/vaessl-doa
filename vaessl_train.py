@@ -32,7 +32,7 @@ from pyro.optim import Adam
 from utils.networks import input_test
 import utils.data_cls as data_cls
 from vaessl_core import SSVAE, run_inference_for_epoch, get_accuracy
-from utils.pyro_utils import debug_memory
+#from utils.pyro_utils import debug_memory
 
 def train(args,train_obj,valid_obj):
     """
@@ -42,7 +42,9 @@ def train(args,train_obj,valid_obj):
     """
 
     data_loaders1 = train_obj.get_vaessl_data(nLabels=args.sup_num,batch_size=args.batch_size,nframes=args.n_seq_frames,nBins=args.num_bins)
+    print('data_loaders1 loaded')
     data_loaders2 = valid_obj.get_vaessl_data(nLabels=args.sup_num,batch_size=args.batch_size,nframes=args.n_seq_frames,nBins=args.num_bins)
+    print('data_loaders2 loaded')
 
     if args.seed is not None:
         pyro.set_rng_seed(args.seed)
@@ -139,6 +141,7 @@ def train(args,train_obj,valid_obj):
         print(str_print)
 
         if validation_acc2==1. or early_stop_counter >99:
+            print('early stop reached')
             break
 
 
