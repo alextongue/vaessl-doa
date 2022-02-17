@@ -93,10 +93,11 @@ class DataClass:
     def get_train_test(self, frame_dict, inds):
         frames_out = []
         labels_out = []
+        print('total number of indices: {0}'.format(inds[-1]))
         for k in inds:  # train/test indices
-            print(k)
+            #print(k)
             for l in frame_dict.keys(): # looping over labels
-                print(l)
+                #print(l)
                 frames_out.append(frame_dict[l][k])
                 labels_out.append([l])
 
