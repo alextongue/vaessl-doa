@@ -186,6 +186,8 @@ class DataClass:
 
         nAllow=(nLabels//len(a))
 
+        print('test3')
+        
         train_inds = np.linspace(0,lmin-1,nAllow).astype(int)
         train_inds_s = set(train_inds)
         test_inds_s0 = set(np.arange(0,lmin-1))
@@ -195,8 +197,12 @@ class DataClass:
         self._train_inds = train_inds
         self._test_inds = test_inds
 
+        print('test4')
+
         frame_train, label_train = self.get_train_test(df,train_inds)
         frame_test,  label_test  = self.get_train_test(df,test_inds)
+
+        print('test5')
 
         if plotting == True:
             plt.figure(0)
