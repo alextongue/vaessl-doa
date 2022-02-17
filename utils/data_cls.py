@@ -94,17 +94,17 @@ class DataClass:
     def get_train_test(self, frame_dict, inds):
         frames_out = []
         labels_out = []
-        ii=0
         for k in inds:  # train/test indices
-            if ii%500==0:
-                show_mem_percent()
-            ii+=1
             for l in frame_dict.keys(): # looping over labels
                 #print(l)
                 frames_out.append(frame_dict[l][k])
                 labels_out.append([l])
         
         print('total number of indices: {0}'.format(inds[-1]))
+
+        show_mem_percent()
+        print('frames_out.shape={0}'.format(np.array(frames_out).shape))
+        print('labels_out.shape={0}'.format(np.array(labels_out).shape))
 
         return np.array(frames_out), np.array(labels_out)
 
